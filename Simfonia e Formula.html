@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt Fizikë - 24 Formula</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin:0; padding:0; }
+header { background-color:#0077cc; color:white; padding:20px; text-align:center;}
+.container { max-width:1000px; margin:20px auto; padding:10px;}
+.formula-card { background:white; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-bottom:20px; padding:20px;}
+h2 { color:#0077cc;}
+input { padding:5px; margin:5px 0; width:100px;}
+button { padding:5px 10px; margin-top:10px;}
+.output { margin-top:10px; font-weight:bold;}
+.section-title { font-weight:bold; margin-top:10px; text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+<h1> Simfonia e Formulave </h1>
+</header>
+<div class="container">
+
+<!-- Formula 1: Shpejtësia mesatare -->
+<div class="formula-card">
+<h2>Formula 1: Shpejtësia mesatare</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Shpejtësia mesatare është distanca e përshkuar në njësi kohe.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10", faqe 23; Khan Academy – Motion</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse një makinë përshkon 120 km në 2 orë, sa është shpejtësia mesatare?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Distanca (km): </label><input type="number" id="d1"><br>
+<label>Koha (ore): </label><input type="number" id="t1"><br>
+<button onclick="calculate1()">Llogarit Shpejtësinë</button>
+<div class="output" id="output1"></div>
+</div>
+
+<!-- Formula 2: Nxehtësia Q = mcΔT -->
+<div class="formula-card">
+<h2>Formula 2: Nxehtësia</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Energjia e nevojshme për të ngrohur një masë të trupit.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10”, faqe 50; HyperPhysics – Heat</p>
+<div class="section-title">Shembull:</div>
+<p>Sa energji nevojitet për të ngrohur 2 kg uji nga 20°C në 100°C? (c=4200 J/kg°C)</p>
+<div class="section-title">Llogaritja:</div>
+<label>Masa (kg): </label><input type="number" id="m2"><br>
+<label>Ngrohja ΔT (°C): </label><input type="number" id="dt2"><br>
+<label>Kapaciteti c (J/kg°C): </label><input type="number" id="c2" value="4200"><br>
+<button onclick="calculate2()">Llogarit Energjinë</button>
+<div class="output" id="output2"></div>
+</div>
+
+<!-- Formula 3: Forca F = m*a -->
+<div class="formula-card">
+<h2>Formula 3: Forca</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Forca është produkt i masës së trupit me përshpejtimin e tij.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 9”, faqe 45; Khan Academy – Newton’s Laws</p>
+<div class="section-title">Shembull:</div>
+<p>Një trup me masë 10 kg përshpejtohet me 2 m/s². Sa është forca?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Masa (kg): </label><input type="number" id="m3"><br>
+<label>Përshpejtimi (m/s²): </label><input type="number" id="a3"><br>
+<button onclick="calculate3()">Llogarit Forcën</button>
+<div class="output" id="output3"></div>
+</div>
+
+<!-- Formula 4: Puna W = F*d -->
+<div class="formula-card">
+<h2>Formula 4: Puna</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Puna është produkt i forcës me distancën në drejtim të forcës.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10”, faqe 60; HyperPhysics – Work</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse forca 50 N lëviz një trup 5 m në drejtim të forcës, sa është puna?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Forca (N): </label><input type="number" id="F4"><br>
+<label>Distanca (m): </label><input type="number" id="d4"><br>
+<button onclick="calculate4()">Llogarit Punën</button>
+<div class="output" id="output4"></div>
+</div>
+
+<!-- Formula 5: Energjia kinetike Ek = 0.5 * m * v² -->
+<div class="formula-card">
+<h2>Formula 5: Energjia Kinetike</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Energjia që një trup ka për shkak të lëvizjes së tij.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10”, faqe 65; Khan Academy – Kinetic Energy</p>
+<div class="section-title">Shembull:</div>
+<p>Një trup me masë 2 kg lëviz me 3 m/s. Sa është energjia kinetike?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Masa (kg): </label><input type="number" id="m5"><br>
+<label>Shpejtësia (m/s): </label><input type="number" id="v5"><br>
+<button onclick="calculate5()">Llogarit Ek</button>
+<div class="output" id="output5"></div>
+</div>
+
+<!-- Formula 6 deri 12: vazhdojmë të njëjtën logjikë -->
+<!-- Për shembull Formula 6: Energjia potenciale Ep = m*g*h -->
+<div class="formula-card">
+<h2>Formula 6: Energjia Potenciale</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Energjia që ka një trup për shkak të pozitës së tij në fushën gravitacionale.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10”, faqe 70; HyperPhysics – Potential Energy</p>
+<div class="section-title">Shembull:</div>
+<p>Një trup me masë 3 kg qëndron në lartësi 5 m. Sa energji potenciale ka?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Masa (kg): </label><input type="number" id="m6"><br>
+<label>Lartësia (m): </label><input type="number" id="h6"><br>
+<label>Gravitacioni g (m/s²): </label><input type="number" id="g6" value="9.8"><br>
+<button onclick="calculate6()">Llogarit Ep</button>
+<div class="output" id="output6"></div>
+</div>
+
+<!-- Formula 7: Presioni P = F / A -->
+<div class="formula-card">
+<h2>Formula 7: Presioni</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Presioni është forca e aplikuar mbi njësi sipërfaqe.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10”, faqe 75; Khan Academy – Pressure</p>
+<div class="section-title">Shembull:</div>
+<p>Forca 100 N aplikohet mbi sipërfaqe 2 m². Sa është presioni?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Forca (N): </label><input type="number" id="F7"><br>
+<label>Sipërfaqja (m²): </label><input type="number" id="A7"><br>
+<button onclick="calculate7()">Llogarit Presionin</button>
+<div class="output" id="output7"></div>
+</div>
+
+<!-- Formula 8: Vëllimi i trupit të ngurtë V = l*w*h -->
+<div class="formula-card">
+<h2>Formula 8: Vëllimi i Trupit të Ngurtë</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Vëllimi llogaritet nga shumëzimi i gjatësisë, gjerësisë dhe lartësisë.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 9”, faqe 35; Khan Academy – Volume</p>
+<div class="section-title">Shembull:</div>
+<p>Një kuti ka l=2 m, w=3 m, h=4 m. Sa është vëllimi?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Gjatësia (m): </label><input type="number" id="l8"><br>
+<label>Gjerësia (m): </label><input type="number" id="w8"><br>
+<label>Lartësia (m): </label><input type="number" id="h8"><br>
+<button onclick="calculate8()">Llogarit Vëllimin</button>
+<div class="output" id="output8"></div>
+</div>
+
+<!-- Formula 9: Dendësia ρ = m / V -->
+<div class="formula-card">
+<h2>Formula 9: Dendësia</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Dendësia është masa për njësi vëllimi.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 9”, faqe 40; HyperPhysics – Density</p>
+<div class="section-title">Shembull:</div>
+<p>Një trup ka masë 10 kg dhe vëllim 2 m³. Sa është dendësia?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Masa (kg): </label><input type="number" id="m9"><br>
+<label>Vëllimi (m³): </label><input type="number" id="V9"><br>
+<button onclick="calculate9()">Llogarit Dendësinë</button>
+<div class="output" id="output9"></div>
+</div>
+
+<!-- Formula 10: Intensiteti i fuqisë P = W / t -->
+<div class="formula-card">
+<h2>Formula 10: Fuqia</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Fuqia tregon sa punë kryhet në njësi kohe.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 10”, faqe 80; Khan Academy – Power</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse kryhet punë 100 J në 5 s, sa është fuqia?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Puna (J): </label><input type="number" id="W10"><br>
+<label>Koha (s): </label><input type="number" id="t10"><br>
+<button onclick="calculate10()">Llogarit Fuqinë</button>
+<div class="output" id="output10"></div>
+</div>
+
+<!-- Formula 11: Frekuenca f = 1 / T -->
+<div class="formula-card">
+<h2>Formula 11: Frekuenca</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Frekuenca është numri i valëve që kalojnë për njësi kohe.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 11”, faqe 60; HyperPhysics – Frequency</p>
+<div class="section-title">Shembull:</div>
+<p>Një pendulum bën një cikël çdo 2 s. Sa është frekuenca?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Periudha (s): </label><input type="number" id="T11"><br>
+<button onclick="calculate11()">Llogarit Frekuencën</button>
+<div class="output" id="output11"></div>
+</div>
+
+<!-- Formula 12: Valëzimi v = λ*f -->
+<div class="formula-card">
+<h2>Formula 12: Shpejtësia e valës</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Shpejtësia e valës është produkt i gjatësisë valës dhe frekuencës.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 11”, faqe 65; Khan Academy – Wave Speed</p>
+<div class="section-title">Shembull:</div>
+<p>Një valë me λ=2 m dhe f=5 Hz. Sa është shpejtësia?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Gjatësia valës (m): </label><input type="number" id="lambda12"><br>
+<label>Frekuenca (Hz): </label><input type="number" id="f12"><br>
+<button onclick="calculate12()">Llogarit Shpejtësinë</button>
+<div class="output" id="output12"></div>
+</div>
+<!-- Formula 13: Intensiteti i rrjedhjes I = Q / t -->
+<div class="formula-card">
+<h2>Formula 13: Intensiteti i rrjedhjes elektrike</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Intensiteti i rrjedhjes është raporti i ngarkesës së kaluar në një pikë të qarkut ndaj kohës.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Elektrike 10”, faqe 45</p>
+<div class="section-title">Shembull:</div>
+<p>Një bateri lë një ngarkesë 12 C gjatë 4 sekondash. Sa është intensiteti?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Ngarkesa Q (C): </label><input type="number" id="Q13"><br>
+<label>Koha t (s): </label><input type="number" id="t13"><br>
+<button onclick="calculate13()">Llogarit</button>
+<div class="output" id="output13"></div>
+</div>
+
+<!-- Formula 14: Ligji i Ohmit V = I*R -->
+<div class="formula-card">
+<h2>Formula 14: Ligji i Ohmit</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Tensioni nëpër një rezistencë është produkti i intensitetit dhe rezistencës së saj.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Elektrike 10”, faqe 48</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse rrjedh një rrymë 2 A nëpër një rezistencë 5 Ω, sa është tensioni?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Intensiteti I (A): </label><input type="number" id="I14"><br>
+<label>Rezistenca R (Ω): </label><input type="number" id="R14"><br>
+<button onclick="calculate14()">Llogarit</button>
+<div class="output" id="output14"></div>
+</div>
+
+<!-- Formula 15: Forca magnetike F = B*I*L -->
+<div class="formula-card">
+<h2>Formula 15: Forca magnetike</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Forca magnetike mbi një tel drejtues me rrjedhje rryme në një fushë magnetike është produkt i induksionit, rrjedhjes dhe gjatësisë së telit.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika 11”, faqe 55</p>
+<div class="section-title">Shembull:</div>
+<p>Në një tel 0.5 m rrjedh një rrymë 3 A në një fushë magnetike 0.2 T. Sa është forca magnetike?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Induksioni B (T): </label><input type="number" id="B15"><br>
+<label>Intensiteti I (A): </label><input type="number" id="I15"><br>
+<label>Gjatësia L (m): </label><input type="number" id="L15"><br>
+<button onclick="calculate15()">Llogarit</button>
+<div class="output" id="output15"></div>
+</div>
+
+<!-- Formula 16: Kapaciteti kondensatorit C = Q / V -->
+<div class="formula-card">
+<h2>Formula 16: Kapaciteti i kondensatorit</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Kapaciteti është raporti i ngarkesës së kondensatorit ndaj tensionit të aplikuar.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Elektrike 11”, faqe 60</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse një kondensator ka ngarkesë 24 C dhe tension 12 V, sa është kapaciteti?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Ngarkesa Q (C): </label><input type="number" id="Q16"><br>
+<label>Tensioni V (V): </label><input type="number" id="V16"><br>
+<button onclick="calculate16()">Llogarit</button>
+<div class="output" id="output16"></div>
+</div>
+
+<!-- Formula 17: Periudha pendulum T = 2π*sqrt(L/g) -->
+<div class="formula-card">
+<h2>Formula 17: Periudha e pendulumit</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Periudha e një pendulumi të thjeshtë varet nga gjatësia dhe gravitacioni.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Mekanikë”, faqe 70</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse gjatësia e pendulumit është 1 m, sa është periudha?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Lartësia L (m): </label><input type="number" id="L17"><br>
+<label>Gravitacioni g (m/s²): </label><input type="number" id="g17" value="9.8"><br>
+<button onclick="calculate17()">Llogarit</button>
+<div class="output" id="output17"></div>
+</div>
+
+<!-- Formula 18: Frekuenca linjare f = v / λ -->
+<div class="formula-card">
+<h2>Formula 18: Frekuenca linjare</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Frekuenca është raporti i shpejtësisë së valës ndaj gjatësisë së saj.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Valësh”, faqe 80</p>
+<div class="section-title">Shembull:</div>
+<p>Një valë me shpejtësi 340 m/s dhe gjatësia 0.68 m, sa është frekuenca?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Shpejtësia v (m/s): </label><input type="number" id="v18"><br>
+<label>Gjatësia valës λ (m): </label><input type="number" id="lambda18"><br>
+<button onclick="calculate18()">Llogarit</button>
+<div class="output" id="output18"></div>
+</div>
+
+<!-- Formula 19: Presioni hidrostativ P = ρ*g*h -->
+<div class="formula-card">
+<h2>Formula 19: Presioni hidrostativ</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Presioni i lëngut në një pikë është produkt i dendësisë, gravitacionit dhe thellësisë.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Lëngjeve”, faqe 90</p>
+<div class="section-title">Shembull:</div>
+<p>Një pishinë me ujë 2 m e thellë. Dendësia e ujit 1000 kg/m³. Sa është presioni në fund?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Dendësia ρ (kg/m³): </label><input type="number" id="rho19"><br>
+<label>Gravitacioni g (m/s²): </label><input type="number" id="g19" value="9.8"><br>
+<label>Lartësia h (m): </label><input type="number" id="h19"><br>
+<button onclick="calculate19()">Llogarit</button>
+<div class="output" id="output19"></div>
+</div>
+
+<!-- Formula 20: Shpejtësia finale v = v0 + a*t -->
+<div class="formula-card">
+<h2>Formula 20: Shpejtësia finale</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Shpejtësia finale e një objekti nën përshpejtim të njëtrajtshëm.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Mekanikë”, faqe 100</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse një makinë fillon nga 0 m/s dhe ka përshpejtim 2 m/s² për 5 sekonda, sa është shpejtësia finale?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Shpejtësia fillestare v0 (m/s): </label><input type="number" id="v020"><br>
+<label>Përshpejtimi a (m/s²): </label><input type="number" id="a20"><br>
+<label>Koha t (s): </label><input type="number" id="t20"><br>
+<button onclick="calculate20()">Llogarit</button>
+<div class="output" id="output20"></div>
+</div>
+
+<!-- Formula 21: Rruga s = v*t -->
+<div class="formula-card">
+<h2>Formula 21: Rruga e përshkuar</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Rruga e përshkuar nën shpejtësi të njëtrajtshme është produkt i shpejtësisë me kohën.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Mekanikë”, faqe 105</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse një makinë ecën 20 m/s për 10 s, sa është rruga e përshkuar?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Shpejtësia v (m/s): </label><input type="number" id="v21"><br>
+<label>Koha t (s): </label><input type="number" id="t21"><br>
+<button onclick="calculate21()">Llogarit</button>
+<div class="output" id="output21"></div>
+</div>
+
+<!-- Formula 22: Rritja e temperaturës ΔT = Q / (m*c) -->
+<div class="formula-card">
+<h2>Formula 22: Rritja e temperaturës</h2>
+<div class="section-title">Përkufizim:</div>
+<p>ΔT është raporti i nxehtësisë të dhënë ndaj produktit të masës dhe kapacitetit specifik.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Termodinamike”, faqe 120</p>
+<div class="section-title">Shembull:</div>
+<p>Ngrohja e 2 kg uji me 8400 J, c=4200 J/kg°C, sa është rritja e temperaturës?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Ngarkesa Q (J): </label><input type="number" id="Q22"><br>
+<label>Masa m (kg): </label><input type="number" id="m22"><br>
+<label>Kapaciteti specifik c (J/kg°C): </label><input type="number" id="c22"><br>
+<button onclick="calculate22()">Llogarit</button>
+<div class="output" id="output22"></div>
+</div>
+
+<!-- Formula 23: Forca elastike F = k*x -->
+<div class="formula-card">
+<h2>Formula 23: Forca elastike</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Forca elastike është produkt i konstantës elastike dhe deformimit të trupit.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Mekanikë”, faqe 130</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse një pranverë ka k=200 N/m dhe zgjatet 0.1 m, sa është forca elastike?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Konstanta elastike k (N/m): </label><input type="number" id="k23"><br>
+<label>Zgjatja x (m): </label><input type="number" id="x23"><br>
+<button onclick="calculate23()">Llogarit</button>
+<div class="output" id="output23"></div>
+</div>
+
+<!-- Formula 24: Energjia elastike Ep = 0.5*k*x² -->
+<div class="formula-card">
+<h2>Formula 24: Energjia elastike</h2>
+<div class="section-title">Përkufizim:</div>
+<p>Energjia e ruajtur në një trup elastik është gjysma e produktit të konstantës elastike me katrorin e deformimit.</p>
+<div class="section-title">Burime:</div>
+<p>Libri “Fizika Mekanikë”, faqe 135</p>
+<div class="section-title">Shembull:</div>
+<p>Nëse k=200 N/m dhe x=0.1 m, sa është energjia elastike?</p>
+<div class="section-title">Llogaritja:</div>
+<label>Konstanta elastike k (N/m): </label><input type="number" id="k24"><br>
+<label>Zgjatja x (m): </label><input type="number" id="x24"><br>
+<button onclick="calculate24()">Llogarit</button>
+<div class="output" id="output24"></div>
+</div>
+
+</div> <!-- container -->
+<script>
+// Funksionet JS për formula 1-12
+function calculate1() {
+    let d=parseFloat(document.getElementById('d1').value);
+    let t=parseFloat(document.getElementById('t1').value);
+    if(t!==0){document.getElementById('output1').innerText="Shpejtësia mesatare: "+(d/t)+" km/h";}
+    else{document.getElementById('output1').innerText="Koha nuk mund të jetë 0!";}
+}
+
+function calculate2(){
+let m=parseFloat(document.getElementById('m2').value);
+let dt=parseFloat(document.getElementById('dt2').value);
+let c=parseFloat(document.getElementById('c2').value);
+document.getElementById('output2').innerText="Energjia: "+(m*c*dt)+" J";
+}
+
+function calculate3(){
+let m=parseFloat(document.getElementById('m3').value);
+let a=parseFloat(document.getElementById('a3').value);
+document.getElementById('output3').innerText="Forca: "+(m*a)+" N";
+}
+
+function calculate4(){
+let F=parseFloat(document.getElementById('F4').value);
+let d=parseFloat(document.getElementById('d4').value);
+document.getElementById('output4').innerText="Puna: "+(F*d)+" J";
+}
+
+function calculate5(){
+let m=parseFloat(document.getElementById('m5').value);
+let v=parseFloat(document.getElementById('v5').value);
+document.getElementById('output5').innerText="Energjia Kinetike: "+(0.5*m*v*v)+" J";
+}
+
+function calculate6(){
+let m=parseFloat(document.getElementById('m6').value);
+let h=parseFloat(document.getElementById('h6').value);
+let g=parseFloat(document.getElementById('g6').value);
+document.getElementById('output6').innerText="Energjia Potenciale: "+(m*g*h)+" J";
+}
+
+function calculate7(){
+let F=parseFloat(document.getElementById('F7').value);
+let A=parseFloat(document.getElementById('A7').value);
+if(A!==0){document.getElementById('output7').innerText="Presioni: "+(F/A)+" Pa";}
+else{document.getElementById('output7').innerText="Sipërfaqja nuk mund të jetë 0!";}
+}
+
+function calculate8(){
+let l=parseFloat(document.getElementById('l8').value);
+let w=parseFloat(document.getElementById('w8').value);
+let h=parseFloat(document.getElementById('h8').value);
+document.getElementById('output8').innerText="Vëllimi: "+(l*w*h)+" m³";
+}
+// Formula 9: Dendësia ρ = m / V
+function calculate9() {
+    let m = parseFloat(document.getElementById('m9').value);
+    let V = parseFloat(document.getElementById('V9').value);
+    let output = document.getElementById('output9');
+    
+    if (V === 0) {
+        output.innerText = "Vëllimi nuk mund të jetë 0!";
+        return;
+    }
+    let density = m / V;
+    output.innerText = "Dendësia: " + density + " kg/m³";
+}
+
+// Formula 10: Fuqia P = W / t
+function calculate10() {
+    let W = parseFloat(document.getElementById('W10').value);
+    let t = parseFloat(document.getElementById('t10').value);
+    let output = document.getElementById('output10');
+    
+    if (t === 0) {
+        output.innerText = "Koha nuk mund të jetë 0!";
+        return;
+    }
+    let power = W / t;
+    output.innerText = "Fuqia: " + power + " W";
+}
+
+// Formula 11: Frekuenca f = 1 / T
+function calculate11() {
+    let T = parseFloat(document.getElementById('T11').value);
+    let output = document.getElementById('output11');
+    
+    if (T === 0) {
+        output.innerText = "Periudha nuk mund të jetë 0!";
+        return;
+    }
+    let f = 1 / T;
+    output.innerText = "Frekuenca: " + f + " Hz";
+}
+
+// Formula 12: Shpejtësia e valës v = λ * f
+function calculate12() {
+    let lambda = parseFloat(document.getElementById('lambda12').value);
+    let f = parseFloat(document.getElementById('f12').value);
+    let output = document.getElementById('output12');
+    
+    let v = lambda * f;
+    output.innerText = "Shpejtësia e valës: " + v + " m/s";
+}
+// Formula 13: Intensiteti i rrjedhjes I = Q / t
+function calculate13() {
+    let Q = parseFloat(document.getElementById('Q13').value);
+    let t = parseFloat(document.getElementById('t13').value);
+    let output = document.getElementById('output13');
+    if (t === 0) {
+        output.innerText = "Koha nuk mund të jetë 0!";
+        return;
+    }
+    let I = Q / t;
+    output.innerText = "Intensiteti i rrjedhjes: " + I + " A";
+}
+
+// Formula 14: Ligji i Ohmit V = I * R
+function calculate14() {
+    let I = parseFloat(document.getElementById('I14').value);
+    let R = parseFloat(document.getElementById('R14').value);
+    let output = document.getElementById('output14');
+    let V = I * R;
+    output.innerText = "Tensioni: " + V + " V";
+}
+
+// Formula 15: Forca magnetike F = B*I*L
+function calculate15() {
+    let B = parseFloat(document.getElementById('B15').value);
+    let I = parseFloat(document.getElementById('I15').value);
+    let L = parseFloat(document.getElementById('L15').value);
+    let output = document.getElementById('output15');
+    let F = B * I * L;
+    output.innerText = "Forca magnetike: " + F + " N";
+}
+
+// Formula 16: Kapaciteti kondensatorit C = Q / V
+function calculate16() {
+    let Q = parseFloat(document.getElementById('Q16').value);
+    let V = parseFloat(document.getElementById('V16').value);
+    let output = document.getElementById('output16');
+    if (V === 0) {
+        output.innerText = "Tensioni nuk mund të jetë 0!";
+        return;
+    }
+    let C = Q / V;
+    output.innerText = "Kapaciteti: " + C + " F";
+}
+
+// Formula 17: Periudha e pendulumit T = 2π*sqrt(L/g)
+function calculate17() {
+    let L = parseFloat(document.getElementById('L17').value);
+    let g = parseFloat(document.getElementById('g17').value);
+    let output = document.getElementById('output17');
+    if (L < 0 || g <= 0) {
+        output.innerText = "Vendos vlera pozitive për L dhe g!";
+        return;
+    }
+    let T = 2 * Math.PI * Math.sqrt(L / g);
+    output.innerText = "Periudha: " + T + " s";
+}
+
+// Formula 18: Frekuenca linjare f = v / λ
+function calculate18() {
+    let v = parseFloat(document.getElementById('v18').value);
+    let lambda = parseFloat(document.getElementById('lambda18').value);
+    let output = document.getElementById('output18');
+    if (lambda === 0) {
+        output.innerText = "Gjatësia valës nuk mund të jetë 0!";
+        return;
+    }
+    let f = v / lambda;
+    output.innerText = "Frekuenca: " + f + " Hz";
+}
+
+// Formula 19: Presioni hidrostativ P = ρ*g*h
+function calculate19() {
+    let rho = parseFloat(document.getElementById('rho19').value);
+    let g = parseFloat(document.getElementById('g19').value);
+    let h = parseFloat(document.getElementById('h19').value);
+    let output = document.getElementById('output19');
+    let P = rho * g * h;
+    output.innerText = "Presioni hidrostativ: " + P + " Pa";
+}
+
+// Formula 20: Shpejtësia finale v = v0 + a*t
+function calculate20() {
+    let v0 = parseFloat(document.getElementById('v020').value);
+    let a = parseFloat(document.getElementById('a20').value);
+    let t = parseFloat(document.getElementById('t20').value);
+    let output = document.getElementById('output20');
+    let v = v0 + a * t;
+    output.innerText = "Shpejtësia finale: " + v + " m/s";
+}
+
+// Formula 21: Lëvizja nën shpejtësi të njëtrajtshme s = v*t
+function calculate21() {
+    let v = parseFloat(document.getElementById('v21').value);
+    let t = parseFloat(document.getElementById('t21').value);
+    let output = document.getElementById('output21');
+    let s = v * t;
+    output.innerText = "Rruga e përshkuar: " + s + " m";
+}
+
+// Formula 22: Rritja e temperaturës ΔT = Q / (m*c)
+function calculate22() {
+    let Q = parseFloat(document.getElementById('Q22').value);
+    let m = parseFloat(document.getElementById('m22').value);
+    let c = parseFloat(document.getElementById('c22').value);
+    let output = document.getElementById('output22');
+    if (m === 0 || c === 0) {
+        output.innerText = "Masa dhe kapaciteti nuk mund të jenë 0!";
+        return;
+    }
+    let dT = Q / (m * c);
+    output.innerText = "Rritja e temperaturës: " + dT + " °C";
+}
+
+// Formula 23: Forca elastike F = k*x
+function calculate23() {
+    let k = parseFloat(document.getElementById('k23').value);
+    let x = parseFloat(document.getElementById('x23').value);
+    let output = document.getElementById('output23');
+    let F = k * x;
+    output.innerText = "Forca elastike: " + F + " N";
+}
+
+// Formula 24: Energjia potenciale elastike Ep = 0.5*k*x²
+function calculate24() {
+    let k = parseFloat(document.getElementById('k24').value);
+    let x = parseFloat(document.getElementById('x24').value);
+    let output = document.getElementById('output24');
+    let Ep = 0.5 * k * x * x;
+    output.innerText = "Energjia potenciale elastike: " + Ep + " J";
+}
+</script>
+</body>
+</html>
